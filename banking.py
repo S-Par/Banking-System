@@ -106,25 +106,26 @@ def create_account():
     card_num = generate_unique_card_num()
     Account.accounts[pin] = card_num
 
-    print("Your card has been created")
+    print("\nYour card has been created")
     print("Your card number:", card_num, sep="\n")
     print("Your card PIN:", pin, sep="\n")
+    print()
     return card_num, pin
 
 
 # Checks if the user has entered appropriate credentials to login
 def login(card_num, pin):
     if pin not in Account.accounts.keys() or Account.accounts[pin] != card_num:
-        print("Wrong card number or PIN!")
+        print("Wrong card number or PIN!\n")
         return False
     else:
-        print("You have successfully logged in!")
+        print("You have successfully logged in!\n")
         return True
 
 
 # Runs the secondary menu allowing a logged in user to do tasks
 def login_menu(account, connection_obj, card):
-    print("1. Balance", "2. Add income", "3. Do transfer", "4. Close account" 
+    print("1. Balance", "2. Add income", "3. Do transfer", "4. Close account", 
           "5. Log out", "0. Exit", sep="\n")
     option = int(input(">"))
     if option == 1:
@@ -200,7 +201,7 @@ def main():
                          f'VALUES ({user_id}, {card_num}, {pin}, 0);')
             connection_obj.commit()
         elif option == 2:
-            card_num = input("Enter your card number:\n>")
+            card_num = input("\nEnter your card number:\n>")
             pin = input("Enter your PIN:\n>")
             if login(card_num, pin):
                 # Create Account object and initialize with saved DB values:
