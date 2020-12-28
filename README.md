@@ -12,3 +12,5 @@ $ cd Banking-System/
 $ python3 banking.py
 ```
 
+## Credit Card Number generation:
+All credit cards begin with the sequence "400000". The next 10 digits of the credit card number are unique to each user. The last digit is the checksum of the credit card number—calculated according to the [Luhn Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm).
